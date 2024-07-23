@@ -1,9 +1,13 @@
 <body>
     <header>
         <h1>Student-Teacher Appointment System</h1>
-        <p><strong>Overview:</strong> This project implements a web-based appointment booking system for students and teachers, facilitating efficient scheduling and communication.</p>
-        <p><strong>Firebase Backend Information:</strong> Utilizes Firebase Firestore for database storage, Firebase Authentication for user management, and Firebase Functions for server-side logic.</p>
+        <p><h2>Overview:</h2> This project implements a web-based appointment booking system for students and teachers, facilitating efficient scheduling and communication.</p>
     </header>
+     <h2>Admin Name and Code</h2>
+    <h5>Name : </h5><h6>Admin@123</h6>
+   <h5> Code :</h5> <h6>0001<h6>
+    <h2>Live Project</h2>
+    <a href="https://project2-appoiment-system.netlify.app/">Live Link</a>
         <section>
         <h2>Pages:</h2>
         <h3>Student</h3>
