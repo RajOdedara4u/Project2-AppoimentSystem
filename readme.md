@@ -53,7 +53,4 @@
             <li>When a student sends an appointment request, it includes information such as teacher name, date, time, message, and dynamically includes the student's name.</li>
         </ul>
     </section>
-    <footer>
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
-    </footer>
 </body>
