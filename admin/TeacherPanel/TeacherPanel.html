@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../../style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      /* Basic reset and styling for the table */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: black;
+        color: aliceblue;
+      }
+      /* Responsive table */
+      @media only screen and (max-width: 600px) {
+        table {
+          border: 0;
+        }
+        table caption {
+          font-size: 1.3em;
+        }
+        table thead {
+          display: none;
+        }
+        table tr {
+          margin-bottom: 10px;
+          display: block;
+          border: 1px solid #ddd;
+        }
+        table td {
+          display: block;
+          text-align: right;
+          border: none;
+          position: relative;
+        }
+        table td:before {
+          position: absolute;
+          left: 0;
+          width: 50%;
+          padding-left: 15px;
+          font-weight: bold;
+          text-align: left;
+        }
+      }
+    </style>
+    <div class="real-hdr">
+      <a
+        class="hdme1"
+        id="Welcome"
+        href="../adminPanel.html?role=Admin"
+        style="color: aliceblue"
+      ></a>
+      <a class="hdme" href="../studentPanel/StudentP.html?role=Admin"
+        >Student</a
+      >
+      <a class="hdme" href="./TeacherPanel.html?role=Admin">Teacher</a>
+      <a
+        href="/index.html"
+        style="
+          background-color: rgb(209, 24, 24);
+          border-radius: 7px;
+          padding-left: 3px;
+          padding-right: 3px;
+        "
+      >
+        Logout
+      </a>
+    </div>
+    <div
+      style="
+        background: #000;
+        height: auto;
+        width: 100vw;
+        color: azure;
+        display: flex;
+      "
+    >
+      <div class="p-1">
+        <h5 style="padding-top: 30px; padding-left: 7px">CORE</h5>
+        <h6 style="padding: 15px; margin-top: 20px">
+          <a href="../adminPanel.html?role=Admin">DASHBORD</a>
+        </h6>
+        <hr
+          style="
+            max-width: 80%;
+            margin: 30px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+
+        <h5 style="padding-top: 30px; padding-left: 7px">INVENORY</h5>
+        <h6 style="padding: 15px; margin-top: 20px">
+          <a href="../studentPanel/StudentP.html?role=Admin">Student</a>
+        </h6>
+        <h6 style="padding: 15px">
+          <a href="../TeacherPanel/TeacherPanel.html?role=Admin">Teacher</a>
+        </h6>
+        <hr
+          style="
+            max-width: 80%;
+            margin: 30px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+      </div>
+
+      <div class="p-2">
+        <table>
+          <caption>
+            registered Teacher's
+          </caption>
+          <thead>
+            <tr>
+              <th>CODE</th>
+              <th>NAME</th>
+              <th>SUBJECT</th>
+            </tr>
+          </thead>
+          <tbody id="TeacheTableBody">
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+
+        <h1 class="adt" style="margin-top: 50px">DELATE TEACHER</h1>
+        <div
+          class="supermini-box1"
+          style="margin-left: auto; margin-right: auto"
+        >
+          <form action="" id="DelateTeacher">
+            <span>
+              <label>Teacher Name</label>
+              <input type="text" id="DTname" placeholder="Prashant sir" />
+            </span>
+
+            <span>
+              <label> Code</label>
+              <input type="text" id="Dauthantication_code" placeholder="2032" />
+            </span>
+            <span>
+              <label style="color: red; font-size: small" id="errorD"></label>
+              <label
+                style="color: green; font-size: small"
+                id="successD"
+              ></label>
+              <button
+                type="submit"
+                style="padding: 10px; font-weight: 700"
+                class="register-btn"
+              >
+                DELATE
+              </button>
+            </span>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module" src="./script1.js"></script>
+  </body>
+</html>

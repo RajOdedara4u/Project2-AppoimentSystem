@@ -1,0 +1,143 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  color: #d3d9d3;
+}
+.container {
+  background-color: #212a31;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.mini-container {
+  width: 45vw;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+div.mini-container > span > h4 {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.student-header {
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+label {
+  margin-left: 5px;
+  padding-bottom: 3px;
+  display: flex;
+  font-weight: 900;
+}
+div.student-header > button {
+  background-color: #c6142f;
+  padding: 5px;
+  cursor: pointer;
+  border: 0cap;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 15%;
+}
+div.student-header > button > a {
+  text-decoration: none;
+}
+#Welcome {
+  font-size: 1.4rem;
+}
+div.student-header > span {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+div.teachers > select {
+  width: 100%;
+  padding: 5px;
+  border: 0cap;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 700;
+}
+.msg {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 900;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+.date {
+  display: flex;
+  font-weight: 900;
+  font-size: 1.1rem;
+  flex-direction: column;
+}
+div.date > input {
+  border-radius: 10px;
+  padding: 7px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: 900;
+  border: 0cap;
+  width: 100%;
+}
+.book-apoiment {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+}
+input {
+  background-color: #124e66;
+}
+select {
+  background-color: #124e66;
+}
+#msg {
+  background-color: #124e66;
+  font-weight: 600;
+}
+button {
+  background-color: #124e66;
+  font-weight: 600;
+}
+option {
+  background-color: #212a31;
+}
+@media (max-width: 600px) {
+  .mini-container {
+    width: 90vw;
+  }
+  div.student-header > span {
+    font-size: 1rem;
+  }
+  div.mini-container > span > h4 {
+    font-size: 0.7rem;
+  }
+  div.mini-container > span > h1 {
+    font-size: 1.6rem;
+  }
+  #Welcome {
+    font-size: 1.1rem;
+  }
+  form > span > h4 {
+    font-size: 0.7rem;
+    padding: 5px;
+  }
+  form > span {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}

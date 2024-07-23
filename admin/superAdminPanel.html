@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      /* Basic reset and styling for the table */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #ddd;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: black;
+        color: aliceblue;
+      }
+      /* Responsive table */
+      @media only screen and (max-width: 600px) {
+        table {
+          border: 0;
+        }
+        table caption {
+          font-size: 1.3em;
+        }
+        table thead {
+          display: none;
+        }
+        table tr {
+          margin-bottom: 10px;
+          display: block;
+          border: 1px solid #ddd;
+        }
+        table td {
+          display: block;
+          text-align: right;
+          border: none;
+          position: relative;
+        }
+        table td:before {
+          position: absolute;
+          left: 0;
+          width: 50%;
+          padding-left: 15px;
+          font-weight: bold;
+          text-align: left;
+        }
+      }
+    </style>
+    <div class="real-hdr">
+      <div class="hdme1" id="Welcome" style="color: aliceblue"></div>
+
+      <a
+        href="/index.html"
+        style="
+          background-color: rgb(209, 24, 24);
+          border-radius: 7px;
+          padding-left: 3px;
+          padding-right: 3px;
+        "
+      >
+        Logout
+      </a>
+    </div>
+    <div style="width: 100vw; height: auto; display: flex; padding-top: 50px">
+      <div class="p-2" style="width: 100vw">
+        <table>
+          <caption>
+            Appoiment's
+          </caption>
+          <thead>
+            <tr>
+              <th>Student-Name</th>
+              <th>Teacher-Name</th>
+              <th>Message</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Accept/Reject</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+        <table>
+          <caption>
+            Approved Appoiment's
+          </caption>
+          <thead>
+            <tr>
+              <th>Student-Name</th>
+              <th>Teacher-Name</th>
+              <th>Message</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Stetus</th>
+            </tr>
+          </thead>
+          <tbody id="acceptedAppoimentsBody">
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module" src="./script3.js"></script>
+    <script>
+      // ----------------------------------------   REJECT APPOIMENT
+      function AcceptA(Sname, Tname, message, Datee, Time) {
+        SaveData(Sname, Tname, message, Datee, Time);
+        deleteTeacherData(Tname, Sname);
+      }
+
+      // function for send data to database
+      const SaveData = (Sname, Tname, message, Datee, Time) => {
+        let appoiments = firebase.database().ref("acceptedAppoiments");
+        var newTeacherdata = appoiments.push();
+        newTeacherdata.set({
+          StudentName: Sname,
+          Teacher: Tname,
+          Message: message,
+          Date: Datee,
+          Time: Time,
+          Stetus: "Approved",
+        });
+      };
+
+      // ----------------------------------------   REJECT APPOIMENT
+      function RejectedA(Sname, Tname) {
+        deleteTeacherData(Tname, Sname);
+      }
+
+      // Function to delete teacher data from Firebase
+      function deleteTeacherData(Tname, Sname) {
+        // Reference to the database node where teacher data is stored
+        let appoiments = firebase.database().ref("appoiment");
+
+        // Find the specific teacher record using query (assuming name and code are unique identifiers)
+        appoiments
+          .orderByChild("StudentName")
+          .equalTo(Sname)
+          .once("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+              var key = childSnapshot.key;
+
+              // Delete the specific record from the database
+              appoiments.child(key).remove();
+              // Display success message
+              console.log("Sucess");
+            });
+          });
+      }
+    </script>
+  </body>
+</html>

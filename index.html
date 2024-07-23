@@ -1,0 +1,77 @@
+<!-- It Is A Main Landing Page For Student Login -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="hdr">
+      <span>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          class="logo-svg"
+          xmlns="http://www.w3.org/2000/svg"
+          stroke="#"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M21 10L12 5L3 10L6 11.6667M21 10L18 11.6667M21 10V10C21.6129 10.3064 22 10.9328 22 11.618V16.9998M6 11.6667L12 15L18 11.6667M6 11.6667V17.6667L12 21L18 17.6667L18 11.6667"
+              stroke="#d3d9d3"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </g>
+        </svg>
+      </span>
+      <span>
+        <a href="./register/register.html">Register</a>
+        <a href="./admin/adminLogin.html">Teacher</a>
+      </span>
+    </div>
+
+    <div class="box">
+      <h1 class="login-txt">Login Here..</h1>
+      <div class="mini-box">
+        <div class="supermini-box1">
+          <form action="" id="loginForm">
+            <span>
+              <label>Number or Email</label>
+              <input
+                id="StudentLogin1"
+                type="text"
+                placeholder="abc@mail.com & 9903043033"
+              />
+            </span>
+            <span>
+              <label>Password</label>
+              <input id="StudentLogin2" type="password" placeholder="abc@123" />
+            </span>
+            <span>
+              <label style="color: red; font-size: small" id="error"></label>
+              <button type="submit" style="padding: 10px; font-weight: 900">
+                LOGIN
+              </button>
+            </span>
+          </form>
+        </div>
+        <div class="supermini-box2">
+          <img src="./simg.jpg" />
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1/firebase.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

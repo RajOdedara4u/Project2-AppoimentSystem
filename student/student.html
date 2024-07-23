@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="student-header">
+      <div id="Welcome"></div>
+      <button class="log-out">
+        <a href="../index.html"> Logout </a>
+      </button>
+    </div>
+    <div class="container">
+      <form action="" id="appoimentForm" class="mini-container">
+        <span>
+          <h1>New Appoiment</h1>
+          <h4>Request A New Appoiment In 10 Seconds...</h4>
+        </span>
+        <div class="teachers">
+          <div id="Welcome"></div>
+          <label>Teachers</label>
+          <select id="Tname"></select>
+        </div>
+        <div class="date">
+          <label>Date</label>
+          <input type="date" id="Date" />
+        </div>
+        <div class="date">
+          <label>Time</label>
+          <input type="time" id="Time" />
+        </div>
+        <div class="msg">
+          <label>Message</label>
+          <textarea rows="6" cols="5" id="msg"> </textarea>
+        </div>
+        <label style="color: red; font-size: small" id="error"></label>
+        <label style="color: green; font-size: small" id="success"></label>
+        <button type="submit" class="book-apoiment">Book Now</button>
+      </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module" src="./script1.js"></script>
+  </body>
+</html>

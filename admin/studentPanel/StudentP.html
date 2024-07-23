@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      /* Basic reset and styling for the table */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #000000;
+        color: aliceblue;
+      }
+      /* Responsive table */
+      @media only screen and (max-width: 600px) {
+        table {
+          border: 0;
+        }
+        table caption {
+          font-size: 1.3em;
+        }
+        table thead {
+          display: none;
+        }
+        table tr {
+          margin-bottom: 10px;
+          display: block;
+          border: 1px solid #ddd;
+        }
+        table td {
+          display: block;
+          text-align: right;
+          border: none;
+          position: relative;
+        }
+        table td:before {
+          position: absolute;
+          left: 0;
+          width: 50%;
+          padding-left: 15px;
+          font-weight: bold;
+          text-align: left;
+        }
+      }
+    </style>
+    <div class="real-hdr">
+      <a
+        class="hdme1"
+        href="../adminPanel.html?role=Admin"
+        id="Welcome"
+        style="color: aliceblue"
+      ></a>
+      <a class="hdme" href="./StudentP.html?role=Admin">Student</a>
+      <a class="hdme" href="../TeacherPanel/TeacherPanel.html?role=Admin"
+        >Teacher</a
+      >
+      <a
+        href="/index.html"
+        style="
+          background-color: rgb(209, 24, 24);
+          border-radius: 7px;
+          padding-left: 3px;
+          padding-right: 3px;
+        "
+      >
+        Logout
+      </a>
+    </div>
+    <div style="background: #000; width: 100vw; color: azure; display: flex">
+      <div class="p-1">
+        <h5 style="padding-top: 30px; padding-left: 7px">CORE</h5>
+        <h6 style="padding: 15px; margin-top: 20px">
+          <a href="../adminPanel.html?role=Admin">DASHBORD</a>
+        </h6>
+
+        <hr
+          style="
+            max-width: 80%;
+            margin: 30px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+
+        <h5 style="padding-top: 30px; padding-left: 7px">INVENORY</h5>
+        <h6 style="padding: 15px; margin-top: 20px">
+          <a href="./StudentP.html?role=Admin">Student</a>
+        </h6>
+        <h6 style="padding: 15px">
+          <a href="../TeacherPanel/TeacherPanel.html?role=Admin">Teacher</a>
+        </h6>
+        <hr
+          style="
+            max-width: 80%;
+            margin: 30px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+      </div>
+      <div class="p-2">
+        <table>
+          <caption>
+            Registerd Student's
+          </caption>
+          <thead>
+            <tr>
+              <th>Roll_no</th>
+              <th>Name</th>
+              <th>Contact</th>
+              <th>Department</th>
+              <th>Password</th>
+            </tr>
+          </thead>
+          <tbody id="aprovedTableBody">
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+        <table>
+          <caption>
+            Panding Students...
+          </caption>
+          <thead>
+            <tr>
+              <th>Roll_no</th>
+              <th>Name</th>
+              <th>Contact</th>
+              <th>Department</th>
+              <th>Password</th>
+              <th>Stetus</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script type="module" src="./script1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script>
+      function AcceptS(rno, nm, con, dep, pass) {
+        AddStudent(rno, nm, con, dep, pass);
+      }
+
+      // function for Add Student into database
+      const AddStudent = (rno, nm, con, dep, pass) => {
+        let addAS = firebase.database().ref("registerdStudents");
+        var newSdata = addAS.push();
+        newSdata.set({
+          rno: rno,
+          name: nm,
+          contact: con,
+          department: dep,
+          password: pass,
+        });
+        deleteSData(rno, con);
+      };
+
+      function RejectedS(rno, cont) {
+        deleteSData(rno, cont);
+      }
+
+      // Function to delete student data from Firebase
+      function deleteSData(rno, cont) {
+        // Reference to the database node where student data is stored
+        let stds = firebase.database().ref("project2-db");
+
+        // Find the specific teacher record using query (assuming name and code are unique identifiers)
+        stds
+          .orderByChild("Roll_no")
+          .equalTo(rno)
+          .once("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+              var key = childSnapshot.key;
+
+              // Delete the specific record from the database
+              stds.child(key).remove();
+              // Display success message
+              console.log("Sucess");
+            });
+          });
+      }
+    </script>
+  </body>
+</html>

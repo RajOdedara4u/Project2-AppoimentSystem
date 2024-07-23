@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      /* Basic reset and styling for the table */
+      input {
+        background-color: #d3d9d4;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #000000;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #000000;
+        color: aliceblue;
+      }
+      /* Responsive table */
+      @media only screen and (max-width: 600px) {
+        table {
+          border: 0;
+        }
+        table caption {
+          font-size: 1.3em;
+        }
+        table thead {
+          display: none;
+        }
+        table tr {
+          margin-bottom: 10px;
+          display: block;
+          border: 1px solid #000000;
+        }
+        table td {
+          display: block;
+          text-align: right;
+          border: none;
+          position: relative;
+        }
+        table td:before {
+          position: absolute;
+          left: 0;
+          width: 50%;
+          padding-left: 15px;
+          font-weight: bold;
+          text-align: left;
+        }
+      }
+    </style>
+    <div class="real-hdr">
+      <a
+        class="hdme1"
+        href="./adminPanel.html?role=Admin"
+        id="Welcome"
+        style="color: aliceblue; visibility: hidden"
+      ></a>
+      <a class="hdme" href="./studentPanel/StudentP.html?role=Admin">Student</a>
+      <a class="hdme" href="./TeacherPanel/TeacherPanel.html?role=Admin"
+        >Teacher</a
+      >
+      <a
+        href="/index.html"
+        style="
+          background-color: rgb(209, 24, 24);
+          border-radius: 7px;
+          padding-left: 3px;
+          padding-right: 3px;
+        "
+      >
+        Logout
+      </a>
+    </div>
+
+    <div style="background: black; display: flex">
+      <div class="p-1" style="background-color: black">
+        <h5 style="padding-top: 30px; padding-left: 7px">CORE</h5>
+        <h6 style="padding: 15px; margin-top: 20px; background-color: black">
+          <a href="./adminPanel.html?role=Admin">DASHBORD</a>
+        </h6>
+
+        <hr
+          style="
+            max-width: 80%;
+            margin: 30px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+
+        <h5 style="padding-top: 30px; padding-left: 7px">INVENORY</h5>
+        <h6 style="padding: 15px; margin-top: 20px">
+          <a href="./studentPanel/StudentP.html?role=Admin">Student</a>
+        </h6>
+        <h6 style="padding: 15px">
+          <a href="./TeacherPanel/TeacherPanel.html?role=Admin">Teacher</a>
+        </h6>
+        <hr
+          style="
+            max-width: 80%;
+            margin: 30px;
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+      </div>
+      <div class="p-2">
+        <h1 class="adt">ADD NEW TEACHER</h1>
+
+        <table>
+          <caption>
+            Appoiment's
+          </caption>
+          <thead>
+            <tr>
+              <th>Student-Name</th>
+              <th>Teacher-Name</th>
+              <th>Message</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Accept/Reject</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+        <table>
+          <caption>
+            Approved Appoiment's
+          </caption>
+          <thead>
+            <tr>
+              <th>Student-Name</th>
+              <th>Teacher-Name</th>
+              <th>Message</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Stetus</th>
+            </tr>
+          </thead>
+          <tbody id="acceptedAppoimentsBody">
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+        <div
+          class="supermini-box1"
+          style="margin-left: auto; margin-right: auto"
+        >
+          <form action="" id="TeacherAdd">
+            <span>
+              <label>Teacher Name</label>
+              <input type="text" id="Tname" placeholder="Prashant sir" />
+            </span>
+            <span>
+              <label>subject</label>
+              <input type="text" id="subject" placeholder="hindi" />
+            </span>
+            <span>
+              <label> Code</label>
+              <input type="text" id="authantication_code" placeholder="2032" />
+            </span>
+            <span>
+              <label style="color: red; font-size: small" id="error"></label>
+              <label
+                style="color: green; font-size: small"
+                id="success"
+              ></label>
+
+              <button
+                type="submit"
+                style="padding: 10px; font-weight: 700"
+                class="register-btn"
+              >
+                ADD NEW TEACHER
+              </button>
+            </span>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module" src="./script2.js"></script>
+
+    <script>
+      // ----------------------------------------   REJECT APPOIMENT
+      function AcceptA(Sname, Tname, message, Datee, Time) {
+        SaveData(Sname, Tname, message, Datee, Time);
+        deleteTeacherData(Tname, Sname);
+      }
+
+      // function for send data to database
+      const SaveData = (Sname, Tname, message, Datee, Time) => {
+        let appoiments = firebase.database().ref("acceptedAppoiments");
+        var newTeacherdata = appoiments.push();
+        newTeacherdata.set({
+          StudentName: Sname,
+          Teacher: Tname,
+          Message: message,
+          Date: Datee,
+          Time: Time,
+          Stetus: "Approved",
+        });
+      };
+
+      // ----------------------------------------   REJECT APPOIMENT
+      function RejectedA(Sname, Tname) {
+        deleteTeacherData(Tname, Sname);
+      }
+
+      // Function to delete teacher data from Firebase
+      function deleteTeacherData(Tname, Sname) {
+        // Reference to the database node where teacher data is stored
+        let appoiments = firebase.database().ref("appoiment");
+
+        // Find the specific teacher record using query (assuming name and code are unique identifiers)
+        appoiments
+          .orderByChild("StudentName")
+          .equalTo(Sname)
+          .once("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+              var key = childSnapshot.key;
+
+              // Delete the specific record from the database
+              appoiments.child(key).remove();
+              // Display success message
+              console.log("Sucess");
+            });
+          });
+      }
+    </script>
+  </body>
+</html>

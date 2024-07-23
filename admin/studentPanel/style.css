@@ -1,0 +1,82 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+/* Header */
+.admin-header {
+  color: rgb(206, 228, 228);
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  padding: 15px;
+}
+.hdme {
+  visibility: hidden;
+}
+div.admin-header > button {
+  background-color: #c6142f;
+  padding: 5px;
+  cursor: pointer;
+  border: 0cap;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 15%;
+}
+div.admin-header > button > a {
+  text-decoration: none;
+  color: azure;
+  padding: 2px;
+}
+div.admin-header > span {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+/* Header end*/
+.p-1 {
+  width: 25vw;
+  background: #000;
+  font-weight: 100;
+  font-family: monospace;
+}
+.p-1 > h6 {
+  color: rgb(175, 185, 185);
+  font-size: 1.1rem;
+}
+.p-1 > h5 {
+  font-size: 1.5rem;
+  color: rgb(134, 142, 142);
+}
+.p-2 {
+  width: 75vw;
+  background-color: rgb(65, 84, 84);
+}
+@media (max-width: 720px) {
+  .p-1 {
+    width: 0;
+    visibility: hidden;
+    background-color: #c6142f;
+  }
+  .p-2 {
+    width: 100vw;
+  }
+}
+/* 
+ Table Styling.............................
+ */
+td.ar {
+  display: flex;
+  justify-content: space-evenly;
+}
+td.ar > button {
+  background-color: #c6142f;
+  padding: 2px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+td.ar > button:first-child {
+  background-color: green;
+}

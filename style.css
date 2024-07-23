@@ -1,0 +1,174 @@
+/* -----------------Styling For Landing Student Login Page  -----------------*/
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+.hdr {
+  display: flex;
+  position: absolute;
+  color: #d3d9d3;
+  width: 100vw;
+  font-size: 1.4rem;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+div.hdr > span > a {
+  padding-left: 15px;
+  text-decoration: none;
+  color: #d3d9d3;
+}
+.back-arrow {
+  width: 45px;
+}
+.logo-svg {
+  width: 45px;
+}
+.box {
+  color: #d3d9d3;
+  width: 100vw;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #212a31;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-txt {
+  font-size: 4.4rem;
+  margin-bottom: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.mini-box {
+  display: flex;
+  border-radius: 20px;
+  width: 90%;
+  background-color: #2e3944;
+  padding: 10px;
+}
+div.supermini-box1 > h1 {
+  font-size: 2.4rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+div.supermini-box1 > h4 {
+  font-size: 1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+label {
+  font-size: medium;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 900;
+}
+
+.department {
+  padding: 8px;
+  border: 0cap;
+  border-radius: 8px;
+}
+.supermini-box1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+div.supermini-box1 > h4 {
+  padding-top: 15px;
+  padding-bottom: 25px;
+}
+span.content > h4 {
+  padding: 10px;
+}
+.supermini-box2 {
+  max-width: 681px;
+  max-height: 500px;
+  width: 50%;
+  overflow: hidden;
+  border-radius: 30px;
+  border-top-left-radius: 153px;
+  border-bottom-right-radius: 153px;
+  display: flex;
+  justify-content: center;
+}
+div.supermini-box2 > img {
+  height: 100%;
+  width: 80%;
+  border-radius: 150px;
+  border-top-left-radius: 153px;
+  border-bottom-right-radius: 153px;
+}
+
+span > input {
+  border-radius: 5px;
+  padding: 7px;
+}
+form > span {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  gap: 5px;
+}
+a {
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  color: #d3d9d3;
+}
+/* media Querys For Responsive Design*/
+
+@media (max-width: 768px) {
+  .mini-box {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-txt {
+    font-size: 2rem;
+    padding-top: 30px;
+  }
+  div.supermini-box1 > h1 {
+    font-size: 1.4rem;
+  }
+  div.supermini-box1 > h4 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 0.7rem;
+  }
+  div.supermini-box1 > span.content {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 600px) {
+  span > input {
+    padding: 3px;
+  }
+  .department {
+    padding: 3px;
+    margin-top: 1px;
+  }
+  .supermini-box2 {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+  .supermini-box1 {
+    width: 90%;
+  }
+}
+@media (max-width: 425px) {
+  .hdr {
+    font-size: 1rem;
+  }
+  .back-arrow {
+    width: 33px;
+  }
+  .logo-svg {
+    width: 35px;
+  }
+}

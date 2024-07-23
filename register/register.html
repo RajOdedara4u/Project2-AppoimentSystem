@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="hdr">
+      <spa>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          class="logo-svg"
+          xmlns="http://www.w3.org/2000/svg"
+          stroke="#"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M21 10L12 5L3 10L6 11.6667M21 10L18 11.6667M21 10V10C21.6129 10.3064 22 10.9328 22 11.618V16.9998M6 11.6667L12 15L18 11.6667M6 11.6667V17.6667L12 21L18 17.6667L18 11.6667"
+              stroke="#d3d9d3"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </g>
+        </svg>
+      </spa>
+      <span>
+        <a href="../index.html">Login</a>
+        <a href="../admin/adminLogin.html">Teacher</a>
+      </span>
+    </div>
+    <div class="box">
+      <h1 class="login-txt">register Here..</h1>
+      <div class="mini-box">
+        <div class="supermini-box1">
+          <form action="" id="registerForm">
+            <span>
+              <label>Full Name</label>
+              <input type="text" id="StudentName" placeholder="Adam first" />
+            </span>
+            <span>
+              <label>Number or Email</label>
+              <input
+                type="text"
+                id="StudentContact"
+                placeholder="abc@mail.com & 9903043033"
+              />
+            </span>
+            <div style="display: flex; justify-content: space-evenly">
+              <span style="width: 45%; display: flex; flex-direction: column">
+                <label>RollNo</label>
+                <input type="number" id="StudentRollNo" placeholder="1" />
+              </span>
+              <span
+                style="width: 45%; display: flex; flex-direction: column"
+                class="teachers"
+              >
+                <label>Department</label>
+                <select class="department" id="StudentDepartment">
+                  <option>Arts</option>
+                  <option>Commerce</option>
+                  <option>Since</option>
+                </select>
+              </span>
+            </div>
+            <span>
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="abc@123"
+                id="StudentPassword"
+              />
+            </span>
+            <span>
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                placeholder="abc@123"
+                id="StudentConPassword"
+              />
+            </span>
+            <span>
+              <label style="color: red; font-size: small" id="error"></label>
+              <label
+                style="color: green; font-size: small"
+                id="success"
+              ></label>
+              <button style="padding: 10px" type="submit">REGISTER</button>
+            </span>
+          </form>
+        </div>
+        <div class="supermini-box2">
+          <img src="../student.png" />
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module" src="./script1.js"></script>
+  </body>
+</html>
